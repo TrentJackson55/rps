@@ -2,6 +2,8 @@
 // return rock, paper or scissors randomly
 // Math.random
 // Create and initialize (0) score variables, comp and player
+let humanScore = 0;
+let compScore = 0;
 
 function getCompChoice() {
     let compChoice = "";
@@ -55,8 +57,7 @@ function playRound(humanChoice, compChoice) {
 }
 
     /*
-    let humanScore = 0;
-    let compScore = 0;
+
     
     // Logic for playing 5 games 
     for (let i = 0; i < 5; i++) {
@@ -78,9 +79,10 @@ function playRound(humanChoice, compChoice) {
 
 
 // create player choice buttons
-let rockButton = document.createElement("button");
-let paperButton = document.createElement("button");
-let scissorsButton = document.createElement("button");
+const rockButton = document.createElement("button");
+const paperButton = document.createElement("button");
+const scissorsButton = document.createElement("button");
+
 
 // create event listeners for each button
 rockButton.addEventListener("click", playRound("rock", getCompChoice()));
