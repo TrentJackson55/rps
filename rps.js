@@ -1,6 +1,7 @@
 // Get computer choice (function)
 // return rock, paper or scissors randomly
 // Math.random
+
 // Create and initialize (0) score variables, comp and player
 let humanScore = 0;
 let compScore = 0;
@@ -78,11 +79,22 @@ function playRound(humanChoice, compChoice) {
     */
 
 
-// create player choice buttons
-const rockButton = document.createElement("button");
-const paperButton = document.createElement("button");
-const scissorsButton = document.createElement("button");
+// create player choice buttons & div container
+const container = document.createElement("div");
+// select body tag to add elements to it
+const bodyElement = document.querySelector("body");
+bodyElement.appendChild(container);
 
+const rockButton = document.createElement("button");
+rockButton.textContent = "ROCK";
+const paperButton = document.createElement("button");
+paperButton.textContent = "PAPER";
+const scissorsButton = document.createElement("button");
+scissorsButton.textContent = "SCISSORS";
+
+container.appendChild(rockButton);
+container.appendChild(paperButton);
+container.appendChild(scissorsButton);
 
 // create event listeners for each button
 rockButton.addEventListener("click", playRound("rock", getCompChoice()));
