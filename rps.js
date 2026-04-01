@@ -25,45 +25,47 @@ function getHumanChoice() {
     return humanChoice;
 }
 
-function playGame() {
     
-    function playRound(humanChoice, compChoice) {
-        if (humanChoice === "rock" && compChoice === "rock") {
-            console.log("Draw! No points awarded");
-        } else if (humanChoice === "rock" && compChoice === "paper") {
-            console.log("You lose! Paper beats Rock.");
-            compScore++;
-        } else if (humanChoice === "rock" && compChoice === "scissors") {
-            console.log("You win! Rock beats Scissors.");
-            humanScore++;    
-        } else if (humanChoice === "paper" && compChoice === "rock") {
-            console.log("You win! Paper beats Rock.");
-            humanScore++;
-        } else if (humanChoice === "paper" && compChoice === "paper") {
-            console.log("Draw! No points awarded");
-        } else if (humanChoice === "paper" && compChoice === "scissors") {
-            console.log("You lose! Scissors beat Paper.");
-            compScore++;
-        } else if (humanChoice === "scissors" && compChoice === "rock") {
-            console.log("You lose! Rock beats Scissors.");
-            compScore++;
-        } else if (humanChoice === "scissors" && compChoice === "paper") {
-            console.log("You win! Scissors beat Paper.");
-            humanScore++;
-        } else if (humanChoice === "scissors" && compChoice === "scissors") {
-            console.log("Draw! No points awarded");
-        }
+function playRound(humanChoice, compChoice) {
+    if (humanChoice === "rock" && compChoice === "rock") {
+        console.log("Draw! No points awarded");
+    } else if (humanChoice === "rock" && compChoice === "paper") {
+        console.log("You lose! Paper beats Rock.");
+        compScore++;
+    } else if (humanChoice === "rock" && compChoice === "scissors") {
+        console.log("You win! Rock beats Scissors.");
+        humanScore++;    
+    } else if (humanChoice === "paper" && compChoice === "rock") {
+        console.log("You win! Paper beats Rock.");
+        humanScore++;
+    } else if (humanChoice === "paper" && compChoice === "paper") {
+        console.log("Draw! No points awarded");
+    } else if (humanChoice === "paper" && compChoice === "scissors") {
+        console.log("You lose! Scissors beat Paper.");
+        compScore++;
+    } else if (humanChoice === "scissors" && compChoice === "rock") {
+        console.log("You lose! Rock beats Scissors.");
+        compScore++;
+    } else if (humanChoice === "scissors" && compChoice === "paper") {
+        console.log("You win! Scissors beat Paper.");
+        humanScore++;
+    } else if (humanChoice === "scissors" && compChoice === "scissors") {
+        console.log("Draw! No points awarded");
     }
+}
 
+    /*
     let humanScore = 0;
     let compScore = 0;
     
+    // Logic for playing 5 games 
     for (let i = 0; i < 5; i++) {
         let humanSelection = getHumanChoice();
         let compSelection = getCompChoice();
 
         playRound(humanSelection, compSelection);
     }
+    
 
     if (humanScore > compScore) {
         console.log(`You won! Final Score: ${humanScore} to ${compScore}`);    
@@ -72,6 +74,16 @@ function playGame() {
     } else {
         console.log(`Draw! You: ${humanScore} Computer: ${compScore}`);
     }
-}
+    */
 
-playGame();
+
+// create player choice buttons
+let rockButton = document.createElement("button");
+let paperButton = document.createElement("button");
+let scissorsButton = document.createElement("button");
+
+// create event listeners for each button
+rockButton.addEventListener("click", playRound("rock", getCompChoice()));
+paperButton.addEventListener("click", playRound("paper", getCompChoice()));
+scissorsButton.addEventListener("click", playRound("scissors", getCompChoice()));
+
