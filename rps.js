@@ -22,14 +22,17 @@ function getCompChoice() {
 
 // Get human choice (function)
 // Use prompt method, store to variable, return
-function getHumanChoice() {
+/*function getHumanChoice() {
     let humanChoice = prompt("Rock, Paper, or Scissors? : ");
     humanChoice = humanChoice.toLowerCase();
     return humanChoice;
 }
+*/
 
     
 function playRound(humanChoice, compChoice) {
+    compChoice = getCompChoice();
+
     if (humanChoice === "rock" && compChoice === "rock") {
         console.log("Draw! No points awarded");
     } else if (humanChoice === "rock" && compChoice === "paper") {
@@ -97,7 +100,18 @@ container.appendChild(paperButton);
 container.appendChild(scissorsButton);
 
 // create event listeners for each button
-rockButton.addEventListener("click", playRound("rock", getCompChoice()));
-paperButton.addEventListener("click", playRound("paper", getCompChoice()));
-scissorsButton.addEventListener("click", playRound("scissors", getCompChoice()));
+rockButton.addEventListener("click", (e) => {
+    playRound("rock", getCompChoice)
+});
+
+paperButton.addEventListener("click", (e) => {
+    playRound("paper", getCompChoice)
+});
+
+scissorsButton.addEventListener("click", (e) => {
+    playRound("scissors", getCompChoice)
+});
+
+// create results div
+const resultDiv = document.createElement("div");
 
