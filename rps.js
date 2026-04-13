@@ -114,4 +114,15 @@ scissorsButton.addEventListener("click", (e) => {
 
 // create results div
 const resultDiv = document.createElement("div");
+container.appendChild(resultDiv);
+const resultsBanner = document.createElement("h1");
+resultsBanner.textContent = "RESULTS:";
+const scores = document.createElement("pre");
 
+scores.textContent = `
+Player Score: ${humanScore}
+\nComputer Score: ${compScore}
+`;
+
+resultDiv.appendChild(resultsBanner);
+resultDiv.appendChild(scores);
