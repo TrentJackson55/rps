@@ -87,14 +87,13 @@ const container = document.createElement("div");
 // select body tag to add elements to it
 const bodyElement = document.querySelector("body");
 bodyElement.appendChild(container);
-
+// Initialize buttons
 const rockButton = document.createElement("button");
 rockButton.textContent = "ROCK";
 const paperButton = document.createElement("button");
 paperButton.textContent = "PAPER";
 const scissorsButton = document.createElement("button");
 scissorsButton.textContent = "SCISSORS";
-
 container.appendChild(rockButton);
 container.appendChild(paperButton);
 container.appendChild(scissorsButton);
