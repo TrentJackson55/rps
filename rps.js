@@ -32,31 +32,34 @@ function getCompChoice() {
     
 function playRound(humanChoice, compChoice) {
     compChoice = getCompChoice();
+    let playerWinText = `You win! ${humanChoice} beats ${compChoice}.`;
+    let compWinText = `You lose! ${compChoice} beats ${humanChoice}.`;
+    let drawText = "Draw! No points awarded";
 
     if (humanChoice === "rock" && compChoice === "rock") {
-        console.log("Draw! No points awarded");
+        roundResult.textContent = drawText;
     } else if (humanChoice === "rock" && compChoice === "paper") {
-        console.log("You lose! Paper beats Rock.");
+        roundResult.textContent = compWinText;
         compScore++;
     } else if (humanChoice === "rock" && compChoice === "scissors") {
-        console.log("You win! Rock beats Scissors.");
+        roundResult.textContent = playerWinText;
         humanScore++;    
     } else if (humanChoice === "paper" && compChoice === "rock") {
-        console.log("You win! Paper beats Rock.");
+        roundResult.textContent = playerWinText;
         humanScore++;
     } else if (humanChoice === "paper" && compChoice === "paper") {
-        console.log("Draw! No points awarded");
+        roundResult.textContent = drawText;
     } else if (humanChoice === "paper" && compChoice === "scissors") {
-        console.log("You lose! Scissors beat Paper.");
+        roundResult.textContent = compWinText;
         compScore++;
     } else if (humanChoice === "scissors" && compChoice === "rock") {
-        console.log("You lose! Rock beats Scissors.");
+        roundResult.textContent = compWinText;
         compScore++;
     } else if (humanChoice === "scissors" && compChoice === "paper") {
-        console.log("You win! Scissors beat Paper.");
+        roundResult.textContent = playerWinText;
         humanScore++;
     } else if (humanChoice === "scissors" && compChoice === "scissors") {
-        console.log("Draw! No points awarded");
+        roundResult.textContent = drawText;
     }
 }
 
@@ -120,9 +123,10 @@ container.appendChild(resultDiv);
 const resultsBanner = document.createElement("h1");
 resultsBanner.textContent = "RESULTS:";
 const scores = document.createElement("pre");
-
+const roundResult = document.createElement("p");
 
 resultDiv.appendChild(resultsBanner);
+resultDiv.appendChild(roundResult);
 resultDiv.appendChild(scores);
 
 // function for score updates and win condition
