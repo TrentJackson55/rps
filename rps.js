@@ -132,17 +132,15 @@ resultDiv.appendChild(scores);
 // function for score updates and win condition
 let updateScore = () => {
     if (humanScore == 5) {
-        scores.textContent = `
-        You won! Final Score: ${humanScore} to ${compScore}
-        `;
+        scores.textContent = `You won! Final Score: ${humanScore} to ${compScore}. Make a selection to play again!`;
+        humanScore = 0;
+        compScore = 0;
     } else if (compScore == 5) {
-        scores.textContent = `
-        You lost! Final Score: ${compScore} to ${humanScore}
-        `;
+        scores.textContent = `You lost! Final Score: ${compScore} to ${humanScore}. Make a selection to play again!`;
+        humanScore = 0;
+        compScore = 0;
     } else {
-        scores.textContent = `
-        Player Score: ${humanScore}
-        \nComputer Score: ${compScore}
-        `;    
+        scores.textContent = `Player Score: ${humanScore}
+        \nComputer Score: ${compScore}`;    
     }
 }
