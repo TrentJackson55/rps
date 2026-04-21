@@ -102,29 +102,17 @@ container.appendChild(scissorsButton);
 // create event listeners for each button
 rockButton.addEventListener("click", (e) => {
     playRound("rock", getCompChoice)
-    // Update scores
-    scores.textContent = `
-    Player Score: ${humanScore}
-    \nComputer Score: ${compScore}
-    `;
+    updateScore();
 });
 
 paperButton.addEventListener("click", (e) => {
     playRound("paper", getCompChoice)
-
-    scores.textContent = `
-    Player Score: ${humanScore}
-    \nComputer Score: ${compScore}
-    `;
+    updateScore();
 });
 
 scissorsButton.addEventListener("click", (e) => {
     playRound("scissors", getCompChoice)
-
-    scores.textContent = `
-    Player Score: ${humanScore}
-    \nComputer Score: ${compScore}
-    `;
+    updateScore();
 });
 
 // create results div
@@ -134,11 +122,24 @@ const resultsBanner = document.createElement("h1");
 resultsBanner.textContent = "RESULTS:";
 const scores = document.createElement("pre");
 
-/*scores.textContent = `
-Player Score: ${humanScore}
-\nComputer Score: ${compScore}
-`;
-*/
 
 resultDiv.appendChild(resultsBanner);
 resultDiv.appendChild(scores);
+
+// function for score updates and win condition
+let updateScore = () => {
+    if (humanScore == 5) {
+        scores.textContent = `
+        You won! Final Score: ${humanScore} to ${compScore}
+        `;
+    } else if (compScore == 5) {
+        scores.textContent = `
+        You lost! Final Score: ${compScore} to ${humanScore}
+        `;
+    } else {
+        scores.textContent = `
+        Player Score: ${humanScore}
+        \nComputer Score: ${compScore}
+        `;    
+    }
+}
