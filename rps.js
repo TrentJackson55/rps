@@ -102,14 +102,29 @@ container.appendChild(scissorsButton);
 // create event listeners for each button
 rockButton.addEventListener("click", (e) => {
     playRound("rock", getCompChoice)
+    // Update scores
+    scores.textContent = `
+    Player Score: ${humanScore}
+    \nComputer Score: ${compScore}
+    `;
 });
 
 paperButton.addEventListener("click", (e) => {
     playRound("paper", getCompChoice)
+
+    scores.textContent = `
+    Player Score: ${humanScore}
+    \nComputer Score: ${compScore}
+    `;
 });
 
 scissorsButton.addEventListener("click", (e) => {
     playRound("scissors", getCompChoice)
+
+    scores.textContent = `
+    Player Score: ${humanScore}
+    \nComputer Score: ${compScore}
+    `;
 });
 
 // create results div
@@ -119,10 +134,11 @@ const resultsBanner = document.createElement("h1");
 resultsBanner.textContent = "RESULTS:";
 const scores = document.createElement("pre");
 
-scores.textContent = `
+/*scores.textContent = `
 Player Score: ${humanScore}
 \nComputer Score: ${compScore}
 `;
+*/
 
 resultDiv.appendChild(resultsBanner);
 resultDiv.appendChild(scores);
